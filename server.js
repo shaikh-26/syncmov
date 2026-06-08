@@ -109,6 +109,20 @@ app.post('/api/upload', upload.single('video'), (req, res) => {
     createdAt: Date.now()
   };
 
+  console.log("━━━━━━━━━━━━━━━━━━━━━━");
+  console.log("🎬 VIDEO UPLOADED");
+  console.log("Room ID:", roomId);
+  console.log("Original Name:", req.file.originalname);
+  console.log("Stored File:", req.file.filename);
+  console.log("Video URL:", `https://two624.onrender.com/video/${req.file.filename}`);
+  console.log("━━━━━━━━━━━━━━━━━━━━━━");
+
+  res.json({
+    roomId,
+    videoFile: req.file.filename,
+    videoName: req.file.originalname
+  });
+});
   // 🔥 UPLOAD LOG (ADD THIS)
   console.log("\n🎬 NEW VIDEO UPLOAD");
   console.log("━━━━━━━━━━━━━━━━━━━━━━");
